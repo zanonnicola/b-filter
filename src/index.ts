@@ -1,12 +1,5 @@
 import murmur from 'murmurhash-js';
 
-export const sum = (a: number, b: number) => {
-  if ('development' === process.env.NODE_ENV) {
-    console.log('boop');
-  }
-  return a + b;
-};
-
 interface IBloomFilter {
   add(item: string): void;
   test(item: string): boolean;
