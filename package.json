@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
+    "start": "tsdx watch --format cjs,esm,umd --name Bfilter",
+    "build": "tsdx build --format cjs,esm,umd -name Bfilter",
     "test": "tsdx test",
     "prepublish": "npm run build"
   },
