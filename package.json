@@ -1,17 +1,22 @@
 {
-  "name": "Bfilters",
+  "name": "b-filter",
   "version": "0.2.3",
   "main": "dist/index.js",
-  "module": "dist/b-filters.esm.js",
+  "module": "dist/bfilter.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "keywords": [
+    "js",
+    "typescript",
+    "utility"
+  ],
   "scripts": {
-    "start": "tsdx watch --format cjs,esm,umd",
-    "build": "tsdx build --format cjs,esm,umd",
+    "start": "tsdx watch --format cjs,esm,umd --name bfilter",
+    "build": "tsdx build --format cjs,esm,umd --name bfilter",
     "test": "tsdx test",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build && npm t"
   },
   "peerDependencies": {},
   "husky": {
@@ -25,6 +30,9 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "repository": "zanonnicola/b-filter",
+  "author": "Nicola Zanon <nicola.zanon86@gmail.com> (https://nicola-zanon.com/)",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/murmurhash-js": "1.0.3",
