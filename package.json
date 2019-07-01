@@ -1,6 +1,6 @@
 {
-  "name": "b-filters",
-  "version": "0.2.2",
+  "name": "Bfilters",
+  "version": "0.2.3",
   "main": "dist/index.js",
   "module": "dist/b-filters.esm.js",
   "typings": "dist/index.d.ts",
@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "start": "tsdx watch --format cjs,esm,umd --name Bfilter",
-    "build": "tsdx build --format cjs,esm,umd -name Bfilter",
+    "start": "tsdx watch --format cjs,esm,umd",
+    "build": "tsdx build --format cjs,esm,umd",
     "test": "tsdx test",
     "prepublish": "npm run build"
   },
