@@ -12,7 +12,7 @@ export default class Bfilter implements IBloomFilter {
   falsePositiveRate: number;
   itemCounter: number;
 
-  constructor(items: number, falsePositiveRate: number = 0.05) {
+  constructor(items: number, falsePositiveRate: number = 0.005) {
     this.items = items;
     this.falsePositiveRate = falsePositiveRate;
     this.bit_array = new Int8Array(this.size);
@@ -36,6 +36,14 @@ export default class Bfilter implements IBloomFilter {
     return (this.size / this.items) * Math.log(2);
   }
 
+  hash(item: string, index: number): number {
+    // Producing n hash functions by hashing only once
+    // hash(i) = (a + b * i ) % m
+    const elHashed1 = murmur.murmur3(item, 1);
+    const elHashed2 = murmur.murmur2(item, 1);
+    return (elHashed1 + elHashed2 * index) % this.size;
+  }
+
   /**
    * Add element to the filter
    *
@@ -44,8 +52,7 @@ export default class Bfilter implements IBloomFilter {
    */
   add(item: string) {
     for (let index = 0; index < this.hash_count; index++) {
-      const elHashed = murmur.murmur3(item, index) % this.size;
-      this.bit_array[elHashed] = 1;
+      this.bit_array[this.hash(item, index)] = 1;
     }
     this.itemCounter++;
   }
@@ -58,7 +65,7 @@ export default class Bfilter implements IBloomFilter {
    */
   test(item: string) {
     for (let index = 0; index < this.hash_count; index++) {
-      const elHashed = murmur.murmur3(item, index) % this.size;
+      const elHashed = this.hash(item, index);
       if (this.bit_array[elHashed] === 0) {
         return false;
       }

@@ -13,14 +13,18 @@ describe('Bloom Filter', () => {
     expect(bfilter.itemCounter).toEqual(2);
   });
   it('should return true for elements that might be in the set', () => {
-    const bfilter = new Bfilter(20);
+    const bfilter = new Bfilter(5);
     bfilter.add('test 1');
     bfilter.add('test 2');
+    bfilter.add('word 1');
+    bfilter.add('word 2');
+    bfilter.add('wosadasdrd 3');
     expect(bfilter.test('test 1')).toBeTruthy();
     expect(bfilter.test('test 2')).toBeTruthy();
+    expect(bfilter.test('wosadasdrd 3')).toBeTruthy();
   });
   it('should return false for elements that are definitively nt in the set', () => {
-    const bfilter = new Bfilter(20);
+    const bfilter = new Bfilter(2);
     bfilter.add('test 1');
     bfilter.add('test 2');
     expect(bfilter.test('ciao')).toBeFalsy();

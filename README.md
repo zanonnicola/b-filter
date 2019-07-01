@@ -14,32 +14,30 @@ npm install b-filters --save
 
 ```js
 // using es modules
-import BloomFilter from 'b-filters'
+import BloomFilter from 'b-filters';
 
 // common.js
-const BloomFilter = require('b-filters')
+const BloomFilter = require('b-filters');
 ```
 
 ## :bulb: Usage
 
 ```js
-
 //...n numbers of items
-const data = ['word 1', 'word 2', 'word 3'];
+const data = ['word 1', 'my second word 2', 'random chars 3'];
 const filter = new BloomFilter(data.length);
 
-for(item in data) {
-    filter.add(item);
+for (const item in data) {
+  filter.add(item);
 }
 
-filter.test('word 2') // true (probably)
-filter.test('random') // false
-
+filter.test('word 1'); // true (probably)
+filter.test('random'); // false
 ```
 
 ## API
 
-#### `BloomFilter(size: number, falsePositiveRate: number);` Default `falsePositiveRate` 0.05
+#### `BloomFilter(size: number, falsePositiveRate: number);` Default `falsePositiveRate` 0.005
 
 `BloomFilter.test(item: string)` returns `boolean`
 
