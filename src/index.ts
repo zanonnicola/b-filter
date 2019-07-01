@@ -6,7 +6,7 @@ interface IBloomFilter {
 }
 
 export default class Bfilter implements IBloomFilter {
-  bit_array: Float32Array;
+  bit_array: Int8Array;
   hash_count: number;
   items: number;
   falsePositiveRate: number;
@@ -15,7 +15,7 @@ export default class Bfilter implements IBloomFilter {
   constructor(items: number, falsePositiveRate: number = 0.05) {
     this.items = items;
     this.falsePositiveRate = falsePositiveRate;
-    this.bit_array = new Float32Array(this.size);
+    this.bit_array = new Int8Array(this.size);
     this.hash_count = this.hashCount;
     this.itemCounter = 0;
   }
@@ -27,7 +27,9 @@ export default class Bfilter implements IBloomFilter {
    * @memberof Bfilter
    */
   get size(): number {
-    return Math.floor(-(this.items * Math.log(this.falsePositiveRate)) / (Math.log(2) ** 2));
+    return Math.floor(
+      -(this.items * Math.log(this.falsePositiveRate)) / Math.log(2) ** 2
+    );
   }
 
   get hashCount() {
@@ -38,7 +40,7 @@ export default class Bfilter implements IBloomFilter {
    * Add element to the filter
    *
    * @param {string} item
-   * @memberof Bfilter 
+   * @memberof Bfilter
    */
   add(item: string) {
     for (let index = 0; index < this.hash_count; index++) {
