@@ -1,6 +1,6 @@
 {
-  "name": "b-filter",
-  "version": "0.2.3",
+  "name": "@zanonnicola/b-filter",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/bfilter.esm.js",
   "typings": "dist/index.d.ts",
@@ -30,7 +30,10 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "repository": "zanonnicola/b-filter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zanonnicola/b-filter.git"
+  },
   "author": "Nicola Zanon <nicola.zanon86@gmail.com> (https://nicola-zanon.com/)",
   "license": "MIT",
   "devDependencies": {
@@ -45,5 +48,13 @@
   },
   "dependencies": {
     "murmurhash-js": "^1.0.0"
+  },
+  "description": "Javascript implementation of [Bloom Filters](http://en.wikipedia.org/wiki/Bloom_filter)",
+  "bugs": {
+    "url": "https://github.com/zanonnicola/b-filter/issues"
+  },
+  "homepage": "https://github.com/zanonnicola/b-filter#readme",
+  "directories": {
+    "test": "test"
   }
 }

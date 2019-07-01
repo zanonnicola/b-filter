@@ -7,22 +7,21 @@ Javascript implementation of [Bloom Filters](http://en.wikipedia.org/wiki/Bloom_
 ## :package: Installation
 
 ```bash
-npm install b-filter --save
+npm i @zanonnicola/b-filter
 ```
 
 ## :rocket: Load
 
 ```js
 // using es modules
-import BloomFilter from 'b-filter';
+import BloomFilter from '@zanonnicola/b-filter';
 
 // common.js
-const BloomFilter = require('b-filter');
+const BloomFilter = require('@zanonnicola/b-filter');
 
 // UMD
-const BloomFilter = bfilter.default';
+const BloomFilter = bfilter.default;
 const filter = new BloomFilter(20);
-
 ```
 
 ## :bulb: Usage
