@@ -1,6 +1,6 @@
 {
   "name": "b-filters",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "module": "dist/b-filters.esm.js",
   "typings": "dist/index.d.ts",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "@types/murmurhash-js": "1.0.3",
     "husky": "^2.7.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
@@ -35,7 +36,6 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@types/murmurhash-js": "^1.0.3",
     "murmurhash-js": "^1.0.0"
   }
 }
