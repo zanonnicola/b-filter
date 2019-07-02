@@ -14,14 +14,15 @@ npm i @zanonnicola/b-filter
 
 ```js
 // using es modules
-import BloomFilter from '@zanonnicola/b-filter';
+import bfilter from '@zanonnicola/b-filter';
+const BloomFilter = bFilter.default;
 
 // common.js
-const BloomFilter = require('@zanonnicola/b-filter');
+const bfilter = require('@zanonnicola/b-filter');
+const BloomFilter = bFilter.default;
 
 // UMD
-const BloomFilter = bfilter.default;
-const filter = new BloomFilter(20);
+const bfilter = bfilter.default;
 ```
 
 ## :bulb: Usage
